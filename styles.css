@@ -12,7 +12,7 @@
   --silver: #c0c0c6;
   --platinum: #e5e5e8;
   --accent: #2a2a2e;
-  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: "Montserrat", system-ui, -apple-system, sans-serif;
 }
 
 * {
