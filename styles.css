@@ -467,3 +467,17 @@ footer {
     padding: 0 20px;
   }
 }
+
+
+/* Highlight one selected work on home */
+.selected-item.is-highlight {
+  border-color: var(--ink-soft);
+  box-shadow: 0 0 0 1px var(--ink-soft);
+}
+.selected-item.is-highlight .selected-body h3::after {
+  content: " · featured";
+  font-weight: 400;
+  font-size: 0.75em;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}

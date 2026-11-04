@@ -96,7 +96,17 @@
               </div>
             </a>
 
-      
+            <a href="work.html" class="selected-item">
+              <div class="selected-art">
+                <img src="images/gaister.jpg" alt="Gaister" loading="lazy">
+              </div>
+              <div class="selected-body">
+                <h3>Gaister</h3>
+                <p class="muted">Album · Mix · AD 93</p>
+                <div class="tags"><span class="tag">M</span></div>
+              </div>
+            </a>
+
             <a href="work.html" class="selected-item">
               <div class="selected-art">
                 <img src="images/fortunate-cookies.jpg" alt="Fortunate Cookies" loading="lazy">
@@ -105,18 +115,6 @@
                 <h3>Fortunate Cookies</h3>
                 <p class="muted">Album · 2026</p>
                 <div class="tags"><span class="tag">A</span><span class="tag">P</span><span class="tag">L</span></div>
-              </div>
-            </a>
-
-               <a href="score.html" class="selected-item">
-              <div class="selected-art">
-                <img src="images/yuchen-wang.png" alt="Yu-Chen Wang collaborations" loading="lazy"
-                     onerror="this.style.display='none'">
-              </div>
-              <div class="selected-body">
-                <h3>Score &amp; sound design — Yu-Chen Wang</h3>
-                <p class="muted">Artist film &amp; installation · Tate, CERN, FACT, Tainan Art Museum</p>
-                <div class="tags"><span class="tag">SD</span></div>
               </div>
             </a>
 
@@ -153,8 +151,18 @@
               </div>
             </a>
 
-           
-           <a href="https://music.apple.com/mt/album/trust-in-the-lifeforce-of-the-deep-mystery/1449207816" target="_blank" rel="noopener" class="selected-item">
+            <a href="https://drycleaning.bandcamp.com/album/sweet-princess-ep" target="_blank" rel="noopener" class="selected-item">
+              <div class="selected-art">
+                <img src="images/sweet-princess.jpg" alt="Sweet Princess EP" loading="lazy">
+              </div>
+              <div class="selected-body">
+                <h3>Dry Cleaning — Sweet Princess EP</h3>
+                <p class="muted">Recording, mix · Studio (TRC) · 2019</p>
+                <div class="tags"><span class="tag">R</span><span class="tag">M</span><span class="tag">S</span></div>
+              </div>
+            </a>
+
+            <a href="https://music.apple.com/mt/album/trust-in-the-lifeforce-of-the-deep-mystery/1449207816" target="_blank" rel="noopener" class="selected-item">
               <div class="selected-art">
                 <img src="images/trust-lifeforce.jpg" alt="Trust in the Lifeforce of the Deep Mystery" loading="lazy">
               </div>
@@ -165,25 +173,16 @@
               </div>
             </a>
 
-                  <a href="work.html" class="selected-item">
-              <div class="selected-art">
-                <img src="images/gaister.jpg" alt="Gaister" loading="lazy">
-              </div>
-              <div class="selected-body">
-                <h3>Gaister</h3>
-                <p class="muted">Album · Mix · AD 93</p>
-                <div class="tags"><span class="tag">M</span></div>
-              </div>
-            </a>
 
-             <a href="https://drycleaning.bandcamp.com/album/sweet-princess-ep" target="_blank" rel="noopener" class="selected-item">
+            <a href="score.html" class="selected-item">
               <div class="selected-art">
-                <img src="images/sweet-princess.jpg" alt="Sweet Princess EP" loading="lazy">
+                <img src="images/yuchen-wang.jpg" alt="Yu-Chen Wang collaborations" loading="lazy"
+                     onerror="this.style.display='none'">
               </div>
               <div class="selected-body">
-                <h3>Dry Cleaning — Sweet Princess EP</h3>
-                <p class="muted">Recording, mix · Studio (TRC) · 2019</p>
-                <div class="tags"><span class="tag">R</span><span class="tag">M</span><span class="tag">S</span></div>
+                <h3>Score &amp; sound design — Yu-Chen Wang</h3>
+                <p class="muted">Artist film &amp; installation · Tate, CERN, FACT, Tainan Art Museum</p>
+                <div class="tags"><span class="tag">SD</span></div>
               </div>
             </a>
 
@@ -202,5 +201,29 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    (function () {
+      var grid = document.querySelector('.selected-grid');
+      if (!grid) return;
+      var cards = Array.prototype.slice.call(grid.children);
+      if (cards.length < 2) return;
+      // Fisher–Yates shuffle
+      for (var i = cards.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = cards[i];
+        cards[i] = cards[j];
+        cards[j] = t;
+      }
+      cards.forEach(function (c) {
+        c.classList.remove('is-highlight');
+        grid.appendChild(c);
+      });
+      // Highlight one at random
+      var pick = cards[Math.floor(Math.random() * cards.length)];
+      pick.classList.add('is-highlight');
+    })();
+  </script>
+
 </body>
 </html>
