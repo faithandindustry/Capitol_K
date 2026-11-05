@@ -1,8 +1,6 @@
 /* Kristian Craig Robinson / Capitol K
    Soft techno · refined industrial · silver archive */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@400;500;600&display=swap');
-
 :root {
   --bg: #ececee;
   --bg-soft: #e2e2e5;
@@ -105,12 +103,10 @@ header {
 
 .logo span {
   display: block;
-  font-family: var(--mono);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 400;
   color: var(--muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   margin-top: 3px;
 }
 
@@ -122,10 +118,9 @@ nav {
 }
 
 nav a {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--ink-soft);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 nav a:hover,
@@ -166,16 +161,6 @@ h3 {
   font-weight: 500;
   margin-bottom: 0.3rem;
   letter-spacing: -0.01em;
-}
-
-/* section index labels */
-.section-index {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.65rem;
 }
 
 .lead {
@@ -233,21 +218,15 @@ h3 {
 }
 
 .path-card span {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--muted);
-  font-family: var(--mono);
-  letter-spacing: 0.02em;
 }
 
 .selected {
   margin-top: 0.5rem;
 }
 
-.selected > .section-index {
-  margin-bottom: 1rem;
-}
-
-.selected-grid {
+.selected > .selected-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 14px;
@@ -303,10 +282,8 @@ h3 {
 .selected-item::after {
   content: attr(data-hover);
   display: block;
-  font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   line-height: 1.4;
-  letter-spacing: 0.02em;
   color: var(--muted);
   padding: 0 16px 0;
   max-height: 0;
@@ -331,10 +308,8 @@ h3 {
 }
 
 .tag {
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
   color: var(--ink-soft);
   background: transparent;
   border: 1px solid var(--line-strong);
@@ -343,12 +318,10 @@ h3 {
 }
 
 .tag-key {
-  font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   color: var(--muted);
   margin-bottom: 1rem;
-  line-height: 1.75;
-  letter-spacing: 0.04em;
+  line-height: 1.7;
 }
 
 .tag-key strong {
@@ -367,10 +340,9 @@ h3 {
 }
 
 .filter-btn {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
   color: var(--ink-soft);
   background: transparent;
   border: 1px solid var(--line);
@@ -393,10 +365,7 @@ h3 {
 }
 
 .status-strip {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
   color: var(--muted);
   margin-bottom: 1.5rem;
 }
@@ -425,9 +394,8 @@ h3 {
 }
 
 .credit-year {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
   color: var(--muted);
   min-width: 2.75rem;
   padding-top: 2px;
@@ -507,9 +475,8 @@ h3 {
 }
 
 .score-timeline .tick span {
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
   color: var(--muted);
   position: relative;
   z-index: 1;
@@ -578,10 +545,7 @@ h3 {
 }
 
 .studio-block ul.studio-list li strong {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.85rem;
   font-weight: 500;
   display: inline-block;
   min-width: 6.5rem;
@@ -600,10 +564,7 @@ footer {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
   color: var(--muted);
 }
 
