@@ -841,3 +841,11 @@ main a[href^="mailto"]:hover {
   border-bottom-color: var(--ink);
   opacity: 1;
 }
+
+.release .role-line {
+  padding-top: 0;
+  margin-top: -6px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
