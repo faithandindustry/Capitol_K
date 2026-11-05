@@ -8,7 +8,7 @@
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -32,8 +32,9 @@
 
     <main>
       <div class="wrap">
+        <p class="section-index">01 / archive</p>
         <h1>Work</h1>
-        <p class="lead">Selected production, engineering, artist and studio credits. Filter by role. Score works listed by first commission year. Faith and Industry catalogue tagged Label.</p>
+        <p class="lead">Production, engineering, artist and studio credits. Score works by first commission year. Faith and Industry tagged Label.</p>
 
         <div class="filters" role="group" aria-label="Filter by role">
           <button type="button" class="filter-btn active" data-filter="all">All</button>
@@ -47,15 +48,17 @@
           <button type="button" class="filter-btn" data-filter="L">Label</button>
         </div>
 
-        <p class="tag-key muted" style="margin-bottom: 1.25rem; font-size: 0.85rem;">
-          <strong>A</strong> = Artist &nbsp;·&nbsp;
-          <strong>P</strong> = Produced &nbsp;·&nbsp;
-          <strong>M</strong> = Mixed &nbsp;·&nbsp;
-          <strong>R</strong> = Recorded &nbsp;·&nbsp;
-          <strong>MA</strong> = Mastered &nbsp;·&nbsp;
-          <strong>S</strong> = Studio (TRC) &nbsp;·&nbsp;
-          <strong>SD</strong> = Score / sound design &nbsp;·&nbsp;
-          <strong>L</strong> = Label
+        <p class="status-strip" id="statusStrip">showing <span id="visibleCount">—</span> credits · filter: <span id="activeFilter">all</span></p>
+
+        <p class="tag-key">
+          <strong>A</strong> · Artist &nbsp;
+          <strong>P</strong> · Produced &nbsp;
+          <strong>M</strong> · Mixed &nbsp;
+          <strong>R</strong> · Recorded &nbsp;
+          <strong>MA</strong> · Mastered &nbsp;
+          <strong>S</strong> · Studio &nbsp;
+          <strong>SD</strong> · Score &nbsp;
+          <strong>L</strong> · Label
         </p>
 
         <div class="credit-list" id="credits">
@@ -1123,23 +1126,53 @@
   </div>
 
   <script>
-    const buttons = document.querySelectorAll('.filter-btn');
-    const credits = document.querySelectorAll('.credit');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        credits.forEach(row => {
-          if (filter === 'all') {
-            row.classList.remove('hidden');
-          } else {
-            const roles = row.dataset.roles.split(/\s+/);
-            row.classList.toggle('hidden', !roles.includes(filter));
-          }
+    (function () {
+      var buttons = document.querySelectorAll('.filter-btn');
+      var credits = document.querySelectorAll('.credit');
+      var visibleCount = document.getElementById('visibleCount');
+      var activeFilter = document.getElementById('activeFilter');
+
+      credits.forEach(function (row) {
+        if (row.querySelector('.credit-year')) return;
+        var meta = row.querySelector('.credit-meta');
+        var title = row.querySelector('.credit-title');
+        var text = (meta ? meta.textContent : '') + ' ' + (title ? title.textContent : '');
+        var years = text.match(/\b((?:19|20)\d{2})\b/g);
+        var year = years ? years[0] : '—';
+        var el = document.createElement('div');
+        el.className = 'credit-year';
+        el.textContent = year;
+        row.insertBefore(el, row.firstChild);
+      });
+
+      function updateStatus(filter) {
+        var n = 0;
+        credits.forEach(function (row) {
+          if (!row.classList.contains('hidden')) n++;
+        });
+        if (visibleCount) visibleCount.textContent = n;
+        if (activeFilter) activeFilter.textContent = filter === 'all' ? 'all' : filter.toLowerCase();
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.dataset.filter;
+          credits.forEach(function (row) {
+            if (filter === 'all') {
+              row.classList.remove('hidden');
+            } else {
+              var roles = (row.dataset.roles || '').split(/\s+/);
+              row.classList.toggle('hidden', roles.indexOf(filter) === -1);
+            }
+          });
+          updateStatus(filter);
         });
       });
-    });
+
+      updateStatus('all');
+    })();
   </script>
 </body>
 </html>
