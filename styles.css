@@ -826,3 +826,18 @@ main a[href^="mailto"]:hover {
     padding: 0.85rem 1rem;
   }
 }
+
+.session-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+.session-links a {
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+}
+.session-links a:hover {
+  border-bottom-color: var(--ink);
+  opacity: 1;
+}
