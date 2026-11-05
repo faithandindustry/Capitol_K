@@ -425,63 +425,6 @@ h3 {
   display: none;
 }
 
-/* —— Score timeline —— */
-.score-timeline {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  margin: 0 0 2.5rem;
-  padding: 1rem 0 1.25rem;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  overflow-x: auto;
-}
-
-.score-timeline .tick {
-  flex: 1;
-  min-width: 3.2rem;
-  text-align: center;
-  position: relative;
-  padding-top: 12px;
-}
-
-.score-timeline .tick::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 1px;
-  height: 8px;
-  background: var(--line-strong);
-}
-
-.score-timeline .tick::after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--line);
-  z-index: 0;
-}
-
-.score-timeline .tick:first-child::after {
-  left: 50%;
-}
-
-.score-timeline .tick:last-child::after {
-  right: 50%;
-}
-
-.score-timeline .tick span {
-  font-size: 0.72rem;
-  font-variant-numeric: tabular-nums;
-  color: var(--muted);
-  position: relative;
-  z-index: 1;
-}
-
 /* —— Music —— */
 .music-grid {
   display: grid;
@@ -550,6 +493,73 @@ h3 {
   display: inline-block;
   min-width: 6.5rem;
   color: var(--ink-soft);
+}
+
+
+/* —— Contact —— */
+.contact-block {
+  max-width: 28rem;
+}
+.contact-block .lead {
+  margin-bottom: 2rem;
+}
+.contact-email {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 0.5rem 0 3.5rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+}
+.contact-email:hover {
+  opacity: 1;
+  border-bottom-color: var(--ink);
+}
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.contact-links a {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+  width: fit-content;
+}
+.contact-links a:hover {
+  color: var(--ink);
+  opacity: 1;
+  border-bottom-color: var(--ink);
+}
+
+/* —— Releases (music) —— */
+.release {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition: border-color var(--ease);
+}
+.release:hover {
+  border-color: var(--line-strong);
+  opacity: 1;
+}
+.release-art {
+  aspect-ratio: 1;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--line);
+}
+.release h3 {
+  padding: 12px 14px 0;
+  font-size: 0.9rem;
+}
+.release .year {
+  padding: 4px 14px 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
 }
 
 /* —— Footer —— */
@@ -626,5 +636,75 @@ main a[href^="mailto"]:hover {
   .selected-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .wrap {
+    padding: 0 14px;
+  }
+  .nav-bar {
+    padding: 14px 0;
+    gap: 10px;
+  }
+  .logo {
+    font-size: 0.85rem;
+    white-space: normal;
+  }
+  nav {
+    width: 100%;
+    gap: 8px 12px;
+  }
+  nav a {
+    font-size: 0.8rem;
+  }
+  main {
+    padding: 28px 0 56px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .lead {
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
+  }
+  .filters {
+    gap: 6px;
+  }
+  .filter-btn {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
+  .credit {
+    grid-template-columns: 2.2rem 1fr;
+    gap: 4px 10px;
+    padding: 12px 0;
+  }
+  .credit .tags {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+  .credit-title {
+    font-size: 0.9rem;
+  }
+  .credit-meta {
+    font-size: 0.78rem;
+  }
+  .selected-grid,
+  .music-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .paths {
+    grid-template-columns: 1fr;
+  }
+  .contact-email {
+    font-size: 1.1rem;
+    margin-bottom: 2.75rem;
+  }
+  .footer-inner {
+    flex-direction: column;
+    gap: 6px;
   }
 }
