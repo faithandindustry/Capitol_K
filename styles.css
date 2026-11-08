@@ -862,20 +862,61 @@ main a[href^="mailto"]:hover {
   height: auto;
   display: block;
   filter: contrast(1.02);
-  vertical-align: middle;
 }
 .studio-portrait figcaption {
   padding: 0.65rem 0.85rem 0.75rem;
   font-size: 0.8rem;
   border-top: 1px solid var(--line);
 }
+.hero-with-photo {
+  display: grid;
+  grid-template-columns: 1fr minmax(160px, 240px);
+  gap: 1.75rem 2rem;
+  align-items: start;
+  margin-bottom: 2.75rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.hero-with-photo .hero-text h1 {
+  margin-bottom: 0.85rem;
+}
+.hero-with-photo .lead {
+  margin-bottom: 0;
+}
 .home-portrait {
-  margin: 1.5rem 0 0;
-  max-width: 42rem;
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  overflow: hidden;
+  max-width: 240px;
+  justify-self: end;
 }
-.home-portrait figcaption {
-  display: none;
+.home-portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: contrast(1.02);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 20%;
 }
+@media (max-width: 640px) {
+  .hero-with-photo {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .home-portrait {
+    max-width: 180px;
+    justify-self: start;
+  }
+}
+@media (max-width: 480px) {
+  .studio-portrait {
+    margin-bottom: 1.5rem;
+  }
+}
+
+
 @media (max-width: 480px) {
   .studio-portrait {
     margin-bottom: 1.5rem;
