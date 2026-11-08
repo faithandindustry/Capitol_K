@@ -849,3 +849,35 @@ main a[href^="mailto"]:hover {
   color: var(--ink-soft);
   font-size: 0.78rem;
 }
+
+/* —— Studio / home portrait —— */
+.studio-portrait {
+  margin: 0 0 2rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  overflow: hidden;
+}
+.studio-portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: contrast(1.02);
+  vertical-align: middle;
+}
+.studio-portrait figcaption {
+  padding: 0.65rem 0.85rem 0.75rem;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+.home-portrait {
+  margin: 1.5rem 0 0;
+  max-width: 42rem;
+}
+.home-portrait figcaption {
+  display: none;
+}
+@media (max-width: 480px) {
+  .studio-portrait {
+    margin-bottom: 1.5rem;
+  }
+}
