@@ -922,3 +922,31 @@ main a[href^="mailto"]:hover {
     margin-bottom: 1.5rem;
   }
 }
+
+/* —— Long-form story —— */
+.story {
+  max-width: 38rem;
+  padding-bottom: 3rem;
+}
+.story-back {
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+.story h1 {
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.03em;
+}
+.story-body p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 1.15rem;
+}
+.story-body p:last-child {
+  margin-bottom: 0;
+}
+.story-close {
+  margin-top: 2rem !important;
+  color: var(--ink) !important;
+  font-weight: 500;
+}
