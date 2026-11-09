@@ -950,3 +950,22 @@ main a[href^="mailto"]:hover {
   color: var(--ink) !important;
   font-weight: 500;
 }
+
+/* First-person voice shift */
+.story-voice {
+  margin: 1.75rem 0;
+  padding: 1.15rem 1.15rem 1.15rem 1.25rem;
+  border-left: 2px solid var(--line-strong);
+  background: var(--surface);
+}
+.story-voice p {
+  margin-bottom: 1rem;
+}
+.story-voice p:last-child {
+  margin-bottom: 0;
+}
+.story-voice + .story-voice {
+  margin-top: -0.5rem;
+  border-top: none;
+  padding-top: 0.25rem;
+}
