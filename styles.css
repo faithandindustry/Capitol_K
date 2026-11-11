@@ -969,3 +969,16 @@ main a[href^="mailto"]:hover {
   border-top: none;
   padding-top: 0.25rem;
 }
+
+.story-sublinks {
+  font-size: 0.9rem;
+  margin: -0.75rem 0 1.5rem;
+  color: var(--ink-soft);
+}
+.story-sublinks a {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+}
+.story-sublinks a:hover {
+  border-bottom-color: var(--ink);
+}
