@@ -30,6 +30,9 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  overflow-x: hidden;
+}
 body {
   font-family: var(--font);
   font-weight: 400;
@@ -981,4 +984,42 @@ main a[href^="mailto"]:hover {
 }
 .story-sublinks a:hover {
   border-bottom-color: var(--ink);
+}
+
+/* Score page: stack credits cleanly on small screens */
+.credit-title {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.credit-meta {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+}
+@media (max-width: 768px) {
+  .credit-list .credit {
+    grid-template-columns: 1fr;
+    gap: 0.45rem 0;
+    align-items: start;
+  }
+  .credit-list .credit .tags {
+    grid-column: 1;
+    justify-content: flex-start;
+    margin-top: 0.15rem;
+  }
+}
+@media (max-width: 480px) {
+  .credit-list .credit {
+    grid-template-columns: 1fr;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+  .credit-list .credit-title {
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+  .credit-list .credit-meta {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
 }
